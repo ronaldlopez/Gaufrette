@@ -158,7 +158,7 @@ class AmazonS3 implements Adapter,
             return false;
         };
 
-        return intval($response->header["x-aws-requestheaders"]["Content-Length"]);
+        return intval( isset($response->header["x-aws-requestheaders"]["Content-Length"]) ? $response->header["x-aws-requestheaders"]["Content-Length"] : 0 );
     }
 
     /**
